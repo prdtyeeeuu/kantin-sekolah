@@ -7,26 +7,32 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="bg-gray-100">
-    <div class="container mx-auto mt-8">
-        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6"><%= title %></h1>
-        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+<body class="bg-slate-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-lg px-4">
+        <div class="bg-white p-8 sm:p-10 rounded-xl shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-800 text-center mb-8"><%= title %></h1>
             <form action="/products/add" method="POST">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 font-bold mb-2">Nama Produk</label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                </div>
-                <div class="mb-4">
-                    <label for="price" class="block text-gray-700 font-bold mb-2">Harga</label>
-                    <input type="number" id="price" name="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-semibold text-gray-600 mb-2">Nama Produk</label>
+                    <input type="text" id="name" name="name" placeholder="Contoh: Nasi Goreng" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
                 </div>
                 <div class="mb-6">
-                    <label for="description" class="block text-gray-700 font-bold mb-2">Deskripsi</label>
-                    <textarea id="description" name="description" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    <label for="price" class="block text-sm font-semibold text-gray-600 mb-2">Harga</label>
+                    <input type="number" id="price" name="price" step="0.01" placeholder="Contoh: 15000.00" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
                 </div>
-                <div class="flex items-center justify-between">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Simpan</button>
-                    <a href="/products" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Batal</a>
+                <div class="mb-6">
+                    <label for="image" class="block text-sm font-semibold text-gray-600 mb-2">Gambar Produk (URL)</label>
+                    <input type="text" id="image" name="image" placeholder="Contoh: https://example.com/image.jpg" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300">
+                </div>
+                <div class="mb-8">
+                    <label for="description" class="block text-sm font-semibold text-gray-600 mb-2">Deskripsi</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Deskripsi singkat produk..." class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out">Simpan Produk</button>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="/products" class="font-medium text-sm text-blue-600 hover:text-blue-800">Batal</a>
                 </div>
             </form>
         </div>

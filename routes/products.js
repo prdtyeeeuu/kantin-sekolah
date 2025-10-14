@@ -20,9 +20,9 @@ router.get('/add', (req, res) => {
 
 // Route to handle the form submission to add a new product
 router.post('/add', async (req, res) => {
-    const { name, price, description } = req.body;
+    const { name, price, description, image } = req.body;
     try {
-        await db.query('INSERT INTO products (name, price, description) VALUES (?, ?, ?)', [name, price, description]);
+                await db.query('INSERT INTO products (name, price, description, image) VALUES (?, ?, ?, ?)', [name, price, description, image]);
         res.redirect('/products');
     } catch (err) {
         console.error(err);
@@ -48,9 +48,9 @@ router.get('/edit/:id', async (req, res) => {
 // Route to handle the form submission to update a product
 router.post('/edit/:id', async (req, res) => {
     const { id } = req.params;
-    const { name, price, description } = req.body;
+    const { name, price, description, image } = req.body;
     try {
-        await db.query('UPDATE products SET name = ?, price = ?, description = ? WHERE id = ?', [name, price, description, id]);
+        await db.query('UPDATE products SET name = ?, price = ?, description = ?, image = ? WHERE id = ?', [name, price, description, image, id]);
         res.redirect('/products');
     } catch (err) {
         console.error(err);
@@ -59,7 +59,7 @@ router.post('/edit/:id', async (req, res) => {
 });
 
 // Route to handle the deletion of a product
-router.get('/delete/:id', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     const { id } = req.params;
     try {
         await db.query('DELETE FROM products WHERE id = ?', [id]);

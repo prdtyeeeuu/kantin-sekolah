@@ -26,6 +26,12 @@ app.use(session({
 }));
 app.use(flash());
 
+// Middleware to pass user data to views
+app.use((req, res, next) => {
+    res.locals.user = req.session.user;
+    next();
+});
+
 // Routers
 const productsRouter = require('./routes/products');
 const authRouter = require('./routes/auth');
