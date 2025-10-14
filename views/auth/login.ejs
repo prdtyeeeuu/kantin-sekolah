@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+            <!-- Left Side -->
+            <div class="flex flex-col justify-center p-8 md:p-14">
+                <span class="mb-3 text-4xl font-bold">Sign in</span>
+                <span class="font-light text-gray-400 mb-8">
+                    Welcome back! Please enter your details
+                </span>
+                 <% if (messages.error) { %>
+                    <p class="text-red-500 text-center mb-4"><%= messages.error %></p>
+                <% } %>
+                <form action="/auth/login" method="POST">
+                    <div class="py-4">
+                        <span class="mb-2 text-md">Email</span>
+                        <input type="text" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" name="email" id="email" required>
+                    </div>
+                    <div class="py-4">
+                        <span class="mb-2 text-md">Password</span>
+                        <input type="password" name="password" id="password" class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500" required>
+                    </div>
+                    <button type="submit" class="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+                        Sign in
+                    </button>
+                </form>
+                <div class="text-center text-gray-400">
+                    or sign in with
+                    <div class="flex justify-center space-x-4 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-google"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="relative">
+                <div class="w-[400px] bg-gradient-to-r from-green-400 to-green-600 h-full hidden md:flex flex-col justify-center items-center text-white rounded-r-2xl">
+                    <h2 class="text-3xl font-bold mb-4">Halo, Teman!</h2>
+                    <p class="text-center mb-8">Enter your personal details and start journey with us</p>
+                    <a href="/auth/signup" class="border-2 border-white rounded-full px-12 py-2 hover:bg-white hover:text-green-500 text-center">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
