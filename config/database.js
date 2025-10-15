@@ -24,7 +24,7 @@ try {
 const pool = mysql.createPool({
     host: envConfig.DB_HOST || 'localhost',
     user: envConfig.DB_USER || 'root',
-    password: envConfig.DB_PASSWORD || '',
+    password: envConfig.DB_PASSWORD || 'root',
     database: envConfig.DB_NAME || 'kantin_sekolah',
     waitForConnections: true,
     connectionLimit: 10,
