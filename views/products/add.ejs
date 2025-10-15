@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,36 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-slate-100 flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-lg px-4">
-        <div class="bg-white p-8 sm:p-10 rounded-xl shadow-lg">
-            <h1 class="text-3xl font-bold text-gray-800 text-center mb-8"><%= title %></h1>
-            <form action="/products/add" method="POST">
-                <div class="mb-6">
-                    <label for="name" class="block text-sm font-semibold text-gray-600 mb-2">Nama Produk</label>
-                    <input type="text" id="name" name="name" placeholder="Contoh: Nasi Goreng" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
-                </div>
-                <div class="mb-6">
-                    <label for="price" class="block text-sm font-semibold text-gray-600 mb-2">Harga</label>
-                    <input type="number" id="price" name="price" step="0.01" placeholder="Contoh: 15000.00" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300" required>
-                </div>
-                <div class="mb-6">
-                    <label for="image" class="block text-sm font-semibold text-gray-600 mb-2">Gambar Produk (URL)</label>
-                    <input type="text" id="image" name="image" placeholder="Contoh: https://example.com/image.jpg" class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300">
-                </div>
-                <div class="mb-8">
-                    <label for="description" class="block text-sm font-semibold text-gray-600 mb-2">Deskripsi</label>
-                    <textarea id="description" name="description" rows="4" placeholder="Deskripsi singkat produk..." class="block w-full px-4 py-3 text-gray-700 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-300"></textarea>
+<body class="bg-gray-100">
+    <%- include('../partials/_header') %>
+
+    <main class="container mx-auto mt-10 p-4">
+        <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+            <h1 class="text-2xl font-bold mb-6 text-center"><%= title %></h1>
+            <form action="/products/add" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nama Produk</label>
+                    <input type="text" id="name" name="name" placeholder="Contoh: Nasi Goreng" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                 </div>
                 <div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition duration-300 ease-in-out">Simpan Produk</button>
+                    <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+                    <input type="number" id="price" name="price" step="0.01" placeholder="Contoh: 15000.00" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                 </div>
-                <div class="text-center mt-4">
-                    <a href="/products" class="font-medium text-sm text-blue-600 hover:text-blue-800">Batal</a>
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700">Gambar Produk (URL)</label>
+                    <input type="text" id="image" name="image" placeholder="Contoh: https://example.com/image.jpg" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Deskripsi singkat produk..." class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <a href="/products" class="text-sm text-gray-600 hover:text-indigo-500">Batal</a>
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Simpan Produk
+                    </button>
                 </div>
             </form>
         </div>
-    </div>
+    </main>
+
+    <script src="/js/script.js"></script>
 </body>
 </html>

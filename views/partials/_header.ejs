@@ -1,16 +1,21 @@
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-0"><%= title %></h1>
-    <div class="flex items-center">
-        <% if (user) { %>
-            <span class="text-lg text-gray-700 mr-4">Welcome, <%= user.username %></span>
-        <% } %>
-        <a href="/products" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105">
-            Lihat Produk
-        </a>
-        <a href="/products/add" class="ml-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105">
-            + Tambah Produk
-        </a>
-        <a href="/auth/logout" class="ml-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-all duration-200 ease-in-out transform hover:scale-105">
-            Logout
-        </a>    </div>
-</div>
+<header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/products" class="text-xl font-bold text-gray-800">Kantin</a>
+        <div class="flex items-center">
+            <% if (user) { %>
+                <span class="text-gray-700 mr-4">Welcome, <%= user.username %></span>
+                <a href="/products/add" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-200 ease-in-out transform hover:scale-105">
+                    + Tambah Produk
+                </a>
+                <a href="/auth/logout" class="ml-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-200 ease-in-out transform hover:scale-105">
+                    Logout
+                </a>
+            <% } else { %>
+                <a href="/auth/login" class="text-gray-700 hover:text-indigo-500 mr-4">Login</a>
+                <a href="/auth/signup" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-all duration-200 ease-in-out transform hover:scale-105">
+                    Sign Up
+                </a>
+            <% } %>
+        </div>
+    </nav>
+</header>
